@@ -76,5 +76,83 @@
       "markdown"
     ],
     "metadata": {}
+  },
+  {
+    "version": "v7.20260602171218",
+    "timestamp": "2026-06-02T17:12:18.592660",
+    "topic": "Test Topic",
+    "summary": "Test Topic represents a significant opportunity. Key findings: Test Topic is an emerging field with ",
+    "word_count": 215,
+    "tone": "professional",
+    "num_images": 3,
+    "export_formats": [
+      "markdown"
+    ],
+    "metadata": {}
+  },
+  {
+    "version": "v8.20260602171218",
+    "timestamp": "2026-06-02T17:12:18.598573",
+    "topic": "Content from https://example.com/article",
+    "summary": "Content from https://example.com/article represents a significant opportunity. Key findings: Content",
+    "word_count": 240,
+    "tone": "professional",
+    "num_images": 3,
+    "export_formats": [
+      "markdown"
+    ],
+    "metadata": {}
+  },
+  {
+    "version": "v9.20260602171218",
+    "timestamp": "2026-06-02T17:12:18.604305",
+    "topic": "JSON Test",
+    "summary": "JSON Test represents a significant opportunity. Key findings: JSON Test is an emerging field with si",
+    "word_count": 215,
+    "tone": "professional",
+    "num_images": 3,
+    "export_formats": [
+      "markdown"
+    ],
+    "metadata": {}
+  },
+  {
+    "version": "v10.20260602171218",
+    "timestamp": "2026-06-02T17:12:18.625055",
+    "topic": "Show Test",
+    "summary": "Show Test represents a significant opportunity. Key findings: Show Test is an emerging field with si",
+    "word_count": 215,
+    "tone": "professional",
+    "num_images": 3,
+    "export_formats": [
+      "markdown"
+    ],
+    "metadata": {}
+  },
+  {
+    "version": "v11.20260602171218",
+    "timestamp": "2026-06-02T17:12:18.646905",
+    "topic": "History Test",
+    "summary": "History Test represents a significant opportunity. Key findings: History Test is an emerging field w",
+    "word_count": 215,
+    "tone": "professional",
+    "num_images": 3,
+    "export_formats": [
+      "markdown"
+    ],
+    "metadata": {}
+  },
+  {
+    "version": "v12.20260602171218",
+    "timestamp": "2026-06-02T17:12:18.658816",
+    "topic": "History JSON",
+    "summary": "History JSON represents a significant opportunity. Key findings: History JSON is an emerging field w",
+    "word_count": 215,
+    "tone": "professional",
+    "num_images": 3,
+    "export_formats": [
+      "markdown"
+    ],
+    "metadata": {}
   }
 ]
