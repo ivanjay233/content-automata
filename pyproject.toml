@@ -21,15 +21,22 @@ dependencies = [
     "pydantic>=2.0.0",
     "pillow>=10.0.0",
 ]
-
-[project.scripts]
-cauto = "content_automata.cli:cli"
+    "pydantic>=2.0.0",
+    "pillow>=10.0.0",
+    "rich>=13.0.0",
+]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0",
     "pytest-cov>=4.0",
     "ruff>=0.1.0",
+    "pre-commit>=3.0.0",
+]
+test = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "click>=8.1.0",
 ]
 
 [tool.setuptools.packages.find]
@@ -38,3 +45,12 @@ include = ["content_automata", "content_automata.*"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["content_automata"]
+omit = ["*/tests/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 70
