@@ -76,7 +76,7 @@ class TestPipelineIntegration:
     def test_pipeline_error_handling(self):
         """Pipeline should handle errors gracefully."""
         with pytest.raises(Exception):
-            pipeline = Pipeline(config={"research": {"provider": "invalid_provider_name_xyz"}})
+            pipeline = ContentPipeline(config={"research": {"provider": "invalid_provider_name_xyz"}})
             pipeline.from_topic("Should fail")
 
     def test_multiple_runs(self):

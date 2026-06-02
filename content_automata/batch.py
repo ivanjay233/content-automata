@@ -17,9 +17,9 @@ logger = logging.getLogger(__name__)
 class BatchResult:
     """Result of a batch processing run."""
 
-    total: int
-    succeeded: int
-    failed: int
+    total: int = 0
+    succeeded: int = 0
+    failed: int = 0
     results: Dict[str, ContentPackage] = field(default_factory=dict)
     errors: Dict[str, str] = field(default_factory=dict)
     duration_seconds: float = 0.0

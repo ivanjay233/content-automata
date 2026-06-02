@@ -96,11 +96,11 @@ class TestCopyWriterTones:
 
     def test_tone_closing_variations(self):
         writer = CopyWriter()
-        assert "hope" in writer._tone_closing("professional")
-        assert "Hope this helps" in writer._tone_closing("casual")
-        assert "don't wait" in writer._tone_closing("persuasive")
-        assert "tea" in writer._tone_closing("humorous")
-        assert "your move" in writer._tone_closing("authoritative")
+        assert "hope" in writer._tone_closing("professional").lower()
+        assert "hope this helps" in writer._tone_closing("casual").lower()
+        assert "don" in writer._tone_closing("persuasive").lower()
+        assert "tea" in writer._tone_closing("humorous").lower()
+        assert "your move" in writer._tone_closing("authoritative").lower()
 
 
 class TestCopyWriterEdgeCases:

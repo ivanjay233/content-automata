@@ -49,6 +49,8 @@ class TestProviderFactory:
 
     def test_register_custom_research(self):
         class CustomResearch(ResearchProvider):
+            def __init__(self, api_key="", config=None):
+                super().__init__()
             def search(self, query, max_results=5):
                 return [], {}
 
@@ -58,6 +60,8 @@ class TestProviderFactory:
 
     def test_register_custom_content(self):
         class CustomContent(ContentProvider):
+            def __init__(self, api_key="", config=None):
+                super().__init__()
             def generate_text(self, prompt, max_tokens=1000, temperature=0.7):
                 return "generated text"
             def generate_image(self, prompt, aspect_ratio="16:9", style="standard"):

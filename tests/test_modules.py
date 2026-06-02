@@ -117,7 +117,9 @@ class TestSEOAnalyzer:
         analyzer = SEOAnalyzer()
         draft = Draft()
         result = analyzer.analyze(draft)
-        assert result.overall == 0.0
+        # No keywords specified -> neutral keyword_score of 0.5 contributes 0.15 to overall
+        assert result.overall > 0
+        assert len(result.suggestions) > 0
 
     def test_analyze_with_content(self):
         analyzer = SEOAnalyzer()

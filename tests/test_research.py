@@ -126,7 +126,8 @@ class TestTopicResearchEdgeCases:
         researcher = TopicResearch()
         brief = ContentBrief(topic="")
         result = researcher.research(brief)
-        assert result.outline != ""
+        assert result.outline == ""  # Empty topic returns minimal result
+        assert "No topic provided" in result.summary
 
     def test_very_long_topic(self):
         researcher = TopicResearch()

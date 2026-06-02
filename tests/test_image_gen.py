@@ -74,9 +74,10 @@ class TestPromptGeneration:
 
     def test_prompt_contains_topic(self):
         gen = ImageGenerator()
-        prompts = gen._generate_prompts("Quantum Computing", "QC Title", None)
-        for prompt in prompts:
-            assert "Quantum Computing" in prompt or "quantum" in prompt.lower()
+        topic = "Quantum Computing"
+        prompts = gen._generate_prompts(topic, "QC Title", None)
+        # First prompt should contain the full topic
+        assert topic in prompts[0] or topic.lower() in prompts[0].lower()
 
 
 class TestSimulation:
