@@ -102,6 +102,10 @@ class ContentScheduler:
         self, final: FinalContent, brief: ContentBrief
     ) -> str:
         """Export content as Markdown."""
+        # Handle empty research gracefully
+        key_points = final.research.key_points if final.research.key_points else ["No key points available"]
+        summary = final.research.summary or "No research summary available."
+
         lines = [
             f"# {brief.topic}",
             "",
@@ -111,23 +115,28 @@ class ContentScheduler:
             "",
             "## Research Summary",
             "",
-            final.research.summary,
+            summary,
             "",
             "## Key Points",
             "",
         ]
-        for point in final.research.key_points:
+        for point in key_points:
             lines.append(f"- {point}")
 
         lines.extend(["", "---", "", "## Content", ""])
         if final.draft.blog_post:
             lines.append(final.draft.blog_post)
+        else:
+            lines.append("*No content generated.*")
 
         lines.extend(["", "---", "", "## Visual Assets", ""])
-        for img in final.visuals.images:
-            lines.append(f"![{img.alt_text}]({img.url})")
-            lines.append(f"*{img.alt_text}*")
-            lines.append("")
+        if final.visuals.images:
+            for img in final.visuals.images:
+                lines.append(f"![{img.alt_text}]({img.url})")
+                lines.append(f"*{img.alt_text}*")
+                lines.append("")
+        else:
+            lines.append("*No visual assets generated.*")
 
         lines.extend(["", "---", "", "## Metadata", ""])
         lines.append(f"- **Tone:** {final.draft.tone}")

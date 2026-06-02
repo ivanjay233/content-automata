@@ -99,12 +99,25 @@ class ImageGenerator:
         return prompts
 
     def _get_aspect_ratio(self, brief: ContentBrief) -> str:
-        """Determine aspect ratio from brief or config."""
-        return (
+        """Determine aspect ratio from brief or config.
+
+        Returns:
+            A valid aspect ratio string from SUPPORTED_ASPECT_RATIOS.
+            Falls back to default if the requested ratio is invalid.
+        """
+        requested = (
             brief.custom_instructions or self._default_aspect
-            if ":" in (brief.custom_instructions or "")
+            if brief.custom_instructions and ":" in brief.custom_instructions
             else self._default_aspect
         )
+        if requested not in self.SUPPORTED_ASPECT_RATIOS:
+            logger.warning(
+                f"Invalid aspect ratio '{requested}' requested, "
+                f"falling back to '{self._default_aspect}'. "
+                f"Valid options: {self.SUPPORTED_ASPECT_RATIOS}"
+            )
+            return self._default_aspect
+        return requested
 
     def _call_api(self, prompt: str, aspect: str) -> VisualAsset:
         """Call the AI image generation API."""

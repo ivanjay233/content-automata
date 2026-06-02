@@ -36,9 +36,20 @@ class TopicResearch:
 
         Returns:
             A ResearchResult with outline, key points, and analysis.
+            Returns a minimal ResearchResult if the topic is empty.
         """
         topic = brief.topic
         keywords = brief.keywords
+
+        if not topic or not topic.strip():
+            logger.warning("Empty topic provided, returning minimal research result")
+            return ResearchResult(
+                topic="",
+                outline="",
+                key_points=["No topic provided for research"],
+                summary="No research could be performed because no topic was specified.",
+            )
+
         logger.info(f"Researching topic: '{topic}'")
 
         # Perform web research
