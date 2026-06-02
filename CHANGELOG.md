@@ -15,3 +15,8 @@
 - Basic test suite for all pipeline stages
 - GitHub Actions CI with linting and testing
 - Makefile for common development tasks
+## [0.1.3] - 2026-06-02
+### Added
+- Newsletter content generation example
+- Multi-platform repurposing example
+- Pre-commit hooks configuration
