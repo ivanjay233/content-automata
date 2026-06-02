@@ -171,6 +171,33 @@ def schedule(export_format, file, date):
 
 
 @cli.command()
+def status():
+    """Check pipeline status."""
+    console.print(Panel.fit(
+        "[bold]content-automata[/bold] — Status",
+        border_style="cyan",
+    ))
+
+    status_table = Table(title="Pipeline Status")
+    status_table.add_column("Component", style="bold")
+    status_table.add_column("Status", style="green")
+
+    status_table.add_row("Package", f"v0.1.0")
+    status_table.add_row("Python", f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")
+    status_table.add_row("Config", "Not loaded (use 'cauto init' to create)")
+
+    # Check installed packages
+    for dep in ["httpx", "pyyaml", "rich", "click", "pydantic", "pillow"]:
+        try:
+            __import__(dep)
+            status_table.add_row(dep, "✅ Installed")
+        except ImportError:
+            status_table.add_row(dep, "❌ Missing")
+
+    console.print(status_table)
+
+
+@cli.command()
 @click.option("--json", "json_output", is_flag=True, default=False, help="Output in JSON format")
 @click.option("--topic", "-t", default=None, help="Filter by topic")
 @click.option("--limit", type=int, default=20, help="Number of entries to show")
