@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=64.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "content-automata"
+version = "0.1.0"
+description = "AI-powered content pipeline — topic research, copywriting, image gen, and scheduling"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "ivanjay233" },
+]
+
+dependencies = [
+    "httpx>=0.25.0",
+    "pyyaml>=6.0",
+    "rich>=13.0.0",
+    "click>=8.1.0",
+    "pydantic>=2.0.0",
+    "pillow>=10.0.0",
+]
+
+[project.scripts]
+cauto = "content_automata.cli:cli"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.1.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["content_automata", "content_automata.*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
