@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json as json_lib
 import sys
 from pathlib import Path
 from typing import Optional
@@ -13,6 +14,9 @@ from rich.table import Table
 from rich import print as rprint
 
 from content_automata import ContentPipeline
+from content_automata.history import RevisionHistory
+from content_automata.templates import TemplateManager
+from content_automata.dryrun import DryRunMode
 
 console = Console()
 
