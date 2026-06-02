@@ -1,0 +1,18 @@
+* text=auto
+
+*.py text diff=python
+*.md text diff=markdown
+*.yml text
+*.yaml text
+*.toml text
+*.json text
+*.cfg text
+*.ini text
+*.sh text eol=lf
+Makefile text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pyc binary

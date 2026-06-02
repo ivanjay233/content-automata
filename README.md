@@ -56,30 +56,37 @@ Three lines. Full content package in return.
 
 ## Pipeline Architecture
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                    content-automata                          │
-│                                                              │
-│   ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌─────────┐  │
-│   │ Research  │──▶│ Writing  │──▶│ Visuals  │──▶│Schedule │  │
-│   │  Stage    │   │  Stage   │   │  Stage   │   │  Stage  │  │
-│   └──────────┘   └──────────┘   └──────────┘   └─────────┘  │
-│        │               │              │              │       │
-│        ▼               ▼              ▼              ▼       │
-│   Topic →       Copy →           Images →        Export →  │
-│   Outline       Variants         Assets          Publish    │
-└──────────────────────────────────────────────────────────────┘
+```mermaid
+graph LR
+    A[Topic / URL] --> B{Research Stage}
+    B --> C[Outline & Key Points]
+    C --> D{Copywriting Stage}
+    D --> E[Blog, Social, Ad Copy]
+    E --> F{Image Generation}
+    F --> G[Visual Assets]
+    G --> H{Scheduling Stage}
+    H --> I[Markdown / HTML / CSV]
+
+    style A fill:#e1f5fe,stroke:#0288d1
+    style B fill:#fff3e0,stroke:#f57c00
+    style D fill:#f3e5f5,stroke:#7b1fa2
+    style F fill:#e8f5e9,stroke:#388e3c
+    style H fill:#fff8e1,stroke:#f9a825
+    style I fill:#e0f2f1,stroke:#00796b
 ```
 
 The pipeline is a state machine with these states:
 
 | State      | Description                         |
 |------------|-------------------------------------|
+| `idle`     | Pipeline initialized, ready         |
 | `research` | Web research & topic analysis       |
 | `draft`    | Copywriting & content generation    |
 | `review`   | Content review & quality checks     |
 | `visuals`  | Image generation & asset creation   |
 | `schedule` | Formatting, export, and scheduling  |
+| `complete` | All stages finished successfully    |
+| `error`    | Pipeline terminated with error      |
 
 ---
 
